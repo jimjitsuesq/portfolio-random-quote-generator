@@ -137,4 +137,4 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
 function reloadPage () {
   window.location.reload();
 }
-setInterval(reloadPage, 10000);
+//setInterval(reloadPage, 10000);
