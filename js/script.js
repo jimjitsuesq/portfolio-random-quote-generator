@@ -1,19 +1,6 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/*** 
- * `quotes` array: An array of Doctor Who quotes containing objects pertaining to each quote.
-***/
-
 const quotes = [
   {
-    quote: "Everythings's got to end sometime. Otherwise nothing would ever get started.", 
+    quote: "Everythings's got to end sometime. Otherwise, nothing would ever get started.", 
     source: 'The Eleventh Doctor (Matt Smith)', 
     citation: 'A Christmas Carol', 
     year: '2010', 
@@ -89,10 +76,6 @@ function getRandomQuote(arr) {
   return arr[randomX];
 }
 
-/***
- * `printQuote` function. Calls the getRandomQuote function to return each part of the object with HTML formatting and returns the formatted HTML.  Also randomly sets a new background color each time the quote is changed.
-***/
-
 function randomBackgroundColor() {
   red = Math.floor(Math.random() * 256);
   green = Math.floor(Math.random() * 256);
@@ -100,6 +83,11 @@ function randomBackgroundColor() {
   randomRGB = `rgb( ${red}, ${green}, ${blue} )`;
   return randomRGB;
 }
+
+/***
+ * `printQuote` function. Calls the getRandomQuote function to return each part of the object with HTML formatting and returns the formatted HTML.  Also randomly sets a new background color each time the quote is changed.
+***/
+
 function printQuote() {
   let randomQuote = getRandomQuote(quotes);
   let html = '' 
@@ -125,7 +113,6 @@ printQuote();
 
 /***
  * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
@@ -134,7 +121,7 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
  *  Reload Page Every 10 Seconds
 ***/
 
-function reloadPage () {
-  window.location.reload();
-}
+// function reloadPage () {
+//   window.location.reload();
+// }
 //setInterval(reloadPage, 10000);
