@@ -1,4 +1,4 @@
-const quotes = [
+const doctorWhoQuotes = [
   {
     quote: "Everythings's got to end sometime. Otherwise, nothing would ever get started.", 
     source: 'The Eleventh Doctor (Matt Smith)', 
@@ -67,6 +67,42 @@ const quotes = [
   }
 ];
 
+codingQuotes = [
+    {
+        quote: 'Talk is cheap. Show me the code.', 
+        source: 'Linus Torvalds'
+    },
+    {
+        quote: 'One of my most productive days was throwing away 1,000 lines of code.',
+        source: 'Ken Thompson'
+    },
+    {
+        quote: "The first 90 percent of the code accounts for the first 90 percent of the development time. The remainin 10 percent of the code accounts for the other 90 percent of the development time.", 
+        source: 'Tom Cargill'
+    },
+    {
+        quote: 'Software is a great combination between artistry and engineering.', 
+        source: 'Bill Gates' 
+    },
+    {
+        quote: 'I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it.', 
+        source: 'Bill Gates'
+    },
+    {
+        quote: "I'm not a great programmer; I'm just a good programmer with great habits.", 
+        source: 'Kent Beck'
+    },
+    {
+        quote: "Truth can only be found in one place: the code.", 
+        source: 'Robert C. Marting', 
+        citation: 'Clean Code: A Handbook of Agile Software Craftsmanship'
+    },
+    {
+        quote: 'Do the simplest thing that could possibly work.', 
+        source: 'Kent Beck'
+    }
+];
+
 /***
  * `getRandomQuote` function: Randomly chooses one of the quotes and returns that object.
 ***/
@@ -76,10 +112,12 @@ function getRandomQuote(arr) {
   return arr[randomX];
 }
 
+// Only using blues to keep the colors more pleasant
+
 function randomBackgroundColor() {
-  red = Math.floor(Math.random() * 256);
-  green = Math.floor(Math.random() * 256);
-  blue = Math.floor(Math.random() * 256);
+  red = 0;
+  green = 0;
+  blue = Math.floor(Math.random() * 255);
   randomRGB = `rgb( ${red}, ${green}, ${blue} )`;
   return randomRGB;
 }
@@ -89,7 +127,7 @@ function randomBackgroundColor() {
 ***/
 
 function printQuote() {
-  let randomQuote = getRandomQuote(quotes);
+  let randomQuote = getRandomQuote(codingQuotes);
   let html = '' 
   html += `
   <p class="quote">${randomQuote.quote}</p>
@@ -97,14 +135,15 @@ function printQuote() {
   if (randomQuote.citation !== undefined) {
     html += `
     <span class="citation">${randomQuote.citation}</span>`
-    if (randomQuote.year !== undefined) {
+  }
+  if (randomQuote.year !== undefined) {
     html += `
     <span class="year">${randomQuote.year}, ${randomQuote.tags} Quote</span></p>`
-    }
-  } else {
+  }
+  if (randomQuote.tags !== undefined) {
     html += `
     , ${randomQuote.tags} Quote</p>`
-  };
+  }
   document.body.style.backgroundColor = randomBackgroundColor(); 
   document.getElementById('quote-box').innerHTML = html;
   return;
